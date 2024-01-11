@@ -1,8 +1,11 @@
-const ProductCard = () => {
+const ProductCard = (props) => {
+  const HandleClick = (name) => {
+    console.log(`my name is ${name}`)
+  }
   return (
     <div className="card">
       <img
-        src="https://images.unsplash.com/photo-1551830820-330a71b99659?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4MTQ2MDgwOQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080"
+        src={props.imageUrl}
         alt=""
         style={{
           width: '100%',
@@ -12,9 +15,23 @@ const ProductCard = () => {
       />
       <div className="container">
         <h4>
-          <b>Ford</b>
+          <b>{props.name}</b>
         </h4>
-        <p>Mobil ford adalah mobil yang bagus</p>
+        <p>{props.deskripsi} </p>
+        <button
+          className="button"
+          onClick={() => HandleClick(props.name)}
+          style={{
+            borderRadius: '10px 10px 10px 10px',
+            width: '30%',
+            backgroundColor: 'aquamarine',
+            textAlign: 'end',
+            padding: '4px 4xp 5px 5px',
+            margin: '4px 4xp 5px 5px',
+          }}
+        >
+          submit
+        </button>
       </div>
     </div>
   )
